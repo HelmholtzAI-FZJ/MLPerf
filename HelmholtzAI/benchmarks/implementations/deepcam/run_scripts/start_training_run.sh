@@ -65,7 +65,7 @@ if [ "$TRAINING_SYSTEM" == "booster" ]
     mkdir -p "$OUTPUT_DIR"
 
     SBATCH_PARAMS+=(
-      --partition     "largebooster"
+      --partition     "$([ "$SLURM_NNODES" -gt 384 ] && echo large)booster"
       --output        "${OUTPUT_DIR}slurm-deepcam-JB-N-${SLURM_NNODES}-%j.out"
       --error         "${OUTPUT_DIR}slurm-deepcam-JB-N-${SLURM_NNODES}-%j.err"
       --cpu-freq="high"

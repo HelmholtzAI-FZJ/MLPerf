@@ -60,7 +60,7 @@ if [ "$TRAINING_SYSTEM" == "booster" ]
     mkdir -p "$OUTPUT_DIR"
 
     SBATCH_PARAMS+=(
-      --partition     "booster"
+      --partition     "$([ "$SLURM_NNODES" -gt 384 ] && echo large)booster"
       --output        "${OUTPUT_DIR}slurm-cosmo-JB-N-${SLURM_NNODES}-%j.out"
       --error         "${OUTPUT_DIR}slurm-cosmo-JB-N-${SLURM_NNODES}-%j.err"
       --account       "hai_mlperf"

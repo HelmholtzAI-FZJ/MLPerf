@@ -17,6 +17,7 @@ export USE_IME="${USE_IME:-0}"
 
 if [ -z "$DATA_DIR_PREFIX" ]; then
     if ((USE_IME)); then
+        echo Using IME.
         export DATA_DIR_PREFIX="/p/cscratch/fs/hai_mlperf/deepcam_hdf5/"
         find "$DATA_DIR_PREFIX" -type f -print0 \
             | xargs -n1 -P48 -0 ime-ctl --prestage

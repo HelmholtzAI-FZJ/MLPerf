@@ -38,6 +38,7 @@ else
 fi
 
 if ((USE_IME)); then
+    echo Using IME.
     find "$DATA_DIR_PREFIX"/train -type f -print0 \
         | xargs -n1 -P48 -0 ime-ctl --prestage
     find "$DATA_DIR_PREFIX"/validation -type f -print0 \

@@ -15,6 +15,8 @@ export SLURM_CPU_BIND_USER_SET="none"
 
 export USE_IME="${USE_IME:-0}"
 
+export HDF5_USE_FILE_LOCKING=FALSE
+
 if [ -z "$DATA_DIR_PREFIX" ]; then
     if ((USE_IME)); then
         echo Using IME.
